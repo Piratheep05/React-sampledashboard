@@ -19,6 +19,7 @@ import { IconButton, Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Chart1 from "./Chart1";
 import Chart2 from "./Chart1/Chart2";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const drawerWidth = 240;
 
@@ -42,6 +43,9 @@ export default function PermanentDrawerLeft() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
+            Admin panel dashboard
+          </Typography>
+          <Typography align="right" >
             Admin panel dashboard
           </Typography>
         </Toolbar>

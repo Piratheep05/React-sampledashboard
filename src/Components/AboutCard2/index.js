@@ -5,8 +5,6 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-// import log1 from "../../Assests/log1.Jpg";
-import lockimg3 from "../../Assests/lockimg3.jpg";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import { IconButton } from "@mui/material";
 
@@ -21,13 +19,10 @@ export default function AboutCard2() {
       {/* </CardMedia> */}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: "bold" }}>
-          Passion
+          Vision
         </Typography>
         <Typography variant="h6" color="black">
-          Everyone in our team cares about making the world a safer place, from
-          our expert journalists to our database designers. We are passionate
-          about content that will help people make better security decisions.
-          And we love our job!
+        To be the centre of excellence in Technological Education.
         </Typography>
       </CardContent>
       {/* <CardActions>

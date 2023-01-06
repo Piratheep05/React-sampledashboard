@@ -22,6 +22,9 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Calendar from "./calender";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Link from "@mui/material/Link";
 
 const drawerWidth = 240;
 
@@ -32,14 +35,14 @@ export default function PermanentDrawerLeft() {
     setAge(event.target.value);
   };
   const listItemData = [
-    { label: "blog", link: "/blog", icon: <InboxIcon /> },
-    { label: "ReportAdmin", link: "/ReportAdmin", icon: <AssessmentIcon /> },
+    { label: "Dashboard", link: "/blog", icon: <InboxIcon /> },
+    { label: "Calender", link: "/ReportAdmin", icon: <AssessmentIcon /> },
     {
-      label: "notification",
+      label: "Academic Notices",
       link: "/notification",
       icon: <NotificationsIcon />,
     },
-    { label: "UserManage", link: "/UserManage", icon: <NotificationsIcon /> },
+    { label: "Semester module", link: "/UserManage", icon: <NotificationsIcon /> },
   ];
 
   return (
@@ -50,9 +53,18 @@ export default function PermanentDrawerLeft() {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Report panel dashboard
-          </Typography>
+          <Box sx={{ display:"flex",width:1200 ,justifyContent:"space-between"}}>
+            <Typography variant="h6" noWrap component="div">
+            Calendar panel dashboard
+            </Typography>
+            <Typography  variant="h6" sx={{ fontWeight: "bold" ,display:"flex-end"}}>
+              <Link href="/login">
+                <IconButton>
+                  <LogoutIcon />
+                </IconButton>
+              </Link>
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -85,25 +97,9 @@ export default function PermanentDrawerLeft() {
         component="main"
         sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
       >
-        {/* <Toolbar /> */}
-        <Typography variant="h5">
-          {" "}
-          <TextSnippetIcon /> Report
-        </Typography>
+        
         <Box sx={{ minWidth: 120 }}>
-          <FormControl fullWidth>
-            <Select
-              displayEmpty
-              inputProps={{ "aria-label": "Without label" }}
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <Calendar/>
         </Box>
       </Box>
     </Box>

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppBar from "@mui/material/AppBar";
@@ -39,7 +38,12 @@ import Stack from "@mui/material/Stack";
 import CreateIcon from "@mui/icons-material/Create";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { dataSet } from "../data";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Link from "@mui/material/Link";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -99,29 +103,53 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(Name, Username, Role, Password) {
-  return { Name, Username, Role, Password };
+function createData(
+  Subjects,
+  HighMaths,
+  AppliedScience,
+  mobiledevelopment,
+  digitalmarketing,
+  Microcontroller
+) {
+  return {
+    Subjects,
+    HighMaths,
+    AppliedScience,
+    mobiledevelopment,
+    digitalmarketing,
+    Microcontroller,
+  };
 }
 
 const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24),
-  createData("Ice cream sandwich", 237, 9.0, 37),
-  createData("Eclair", 262, 16.0, 24),
-  createData("Cupcake", 305, 3.7, 67),
+  createData("19/IT/IT/509", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/510", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/511", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/512", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/513", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/514", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/515", 80, 56, 67, 34, 67),
+  createData("19/IT/IT/516", 80, 56, 67, 34, 67),
 ];
 
 const drawerWidth = 240;
 
 export default function PermanentDrawerLeft() {
+  const [dataState, setDataState] = useState(dataSet);
+
   const listItemData = [
-    { label: "blog", link: "/blog", icon: <InboxIcon /> },
-    { label: "ReportAdmin", link: "/ReportAdmin", icon: <AssessmentIcon /> },
+    { label: "Dashboard", link: "/blog", icon: <InboxIcon /> },
+    { label: "Calender", link: "/ReportAdmin", icon: <AssessmentIcon /> },
     {
-      label: "notification",
+      label: "Academic Notices",
       link: "/notification",
       icon: <NotificationsIcon />,
     },
-    { label: "UserManage", link: "/UserManage", icon: <NotificationsIcon /> },
+    {
+      label: "Semester module",
+      link: "/UserManage",
+      icon: <NotificationsIcon />,
+    },
   ];
 
   const [open, setOpen] = React.useState(false);
@@ -138,6 +166,7 @@ export default function PermanentDrawerLeft() {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
   const [employeesList, setEmployeesList] = useState([]);
+  const [marks,setMarks] = useState([]);
 
   const addEmployee = (e) => {
     e.preventdefault();
@@ -162,89 +191,10 @@ export default function PermanentDrawerLeft() {
     });
   };
 
+
+
   return (
     <>
-      <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
-          Add Users
-        </Button>
-        <Button onClick={getEmployee} variant="outlined">
-          show users
-        </Button>
-        <BootstrapDialog
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <BootstrapDialogTitle
-            id="customized-dialog-title"
-            onClose={handleClose}
-          >
-           Add users
-          </BootstrapDialogTitle>
-          <DialogContent dividers>
-            <Box
-              component="form"
-              onSubmit={addEmployee}
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                "& > :not(style)": { m: 1 },
-              }}
-            >
-              <TextField
-                helperText="Please enter your Name"
-                label="name"
-                id="name"
-                name="name"
-                autoComplete="name"
-                autoFocus
-                onChange={(e) => {
-                  setName(e.target.value);
-                }}
-              />
-              <TextField
-                helperText="Please enter your Username"
-                label="Username"
-                id="Username"
-                name="Username"
-                autoComplete="Username"
-                autoFocus
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
-              <TextField
-                helperText="Please enter your Role"
-                label="password"
-                id="password"
-                name="password"
-                autoComplete="password"
-                autoFocus
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-              />
-              <TextField
-                helperText="Please enter your Password"
-                label="role"
-                id="role"
-                name="role"
-                autoComplete="role"
-                autoFocus
-                onChange={(e) => {
-                  setRole(e.target.value);
-                }}
-              />
-              <DialogActions>
-                <Button variant="contained" onClick={handleClose} type="submit">
-                  Submit
-                </Button>
-              </DialogActions>
-            </Box>
-          </DialogContent>
-        </BootstrapDialog>
-      </div>
       <Box sx={{ display: "flex" }}>
         <CssBaseline />
         <AppBar
@@ -255,9 +205,27 @@ export default function PermanentDrawerLeft() {
           }}
         >
           <Toolbar>
-            <Typography variant="h6" noWrap component="div">
-              Admin blog panel dashboard
-            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                width: 1200,
+                justifyContent: "space-between",
+              }}
+            >
+              <Typography variant="h6" noWrap component="div">
+                Semister panel dashboard
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: "bold", display: "flex-end" }}
+              >
+                <Link href="/login">
+                  <IconButton>
+                    <LogoutIcon />
+                  </IconButton>
+                </Link>
+              </Typography>
+            </Box>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -290,49 +258,127 @@ export default function PermanentDrawerLeft() {
           component="main"
           sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
         >
+          <Typography align="left" variant="h4" sx={{ fontWeight: "bold" }}>
+            Semister 1
+          </Typography>
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 700 }} aria-label="customized table">
               <TableHead>
                 <TableRow>
-                  <StyledTableCell align="right"/>
-                  <StyledTableCell align="right">Name</StyledTableCell>
-                  <StyledTableCell align="right">Username</StyledTableCell>
-                  <StyledTableCell align="right">Role</StyledTableCell>
-                  <StyledTableCell align="right">Password</StyledTableCell>
-                  {/* <StyledTableCell align="right"></StyledTableCell> */}
+                  <StyledTableCell>Student Reg</StyledTableCell>
+                  <StyledTableCell align="right">High Maths</StyledTableCell>
+                  <StyledTableCell align="right">
+                    Applied Science
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    mobile development
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    digital marketing
+                  </StyledTableCell>
+                  <StyledTableCell align="right">
+                    Microcontroller
+                  </StyledTableCell>
+                  <StyledTableCell>
+                  </StyledTableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {employeesList.map((row) => (
-                  <StyledTableRow key={row.id}>
-
+                {rows.map((row) => (
+                  <StyledTableRow key={row.name}>
                     <StyledTableCell component="th" scope="row">
-                      {row.Name}
+                      {row.Subjects}
                     </StyledTableCell>
                     <StyledTableCell align="right">
-                      {row.Username}
+                      {row.HighMaths}
                     </StyledTableCell>
-                    <StyledTableCell align="right">{row.Role}</StyledTableCell>
                     <StyledTableCell align="right">
-                      {row.Password}
+                      {row.AppliedScience}
                     </StyledTableCell>
-                    {/* <StyledTableCell align="right">
-                      <Stack direction="row" spacing={2}>
-                        {" "}
-                        <Button variant="outlined" startIcon={<DeleteIcon />}>
-                          Delete
-                        </Button>
-                        <Button variant="outlined" startIcon={<CreateIcon />}>
-                          Edit
-                        </Button>
+                    <StyledTableCell align="right">
+                      {row.mobiledevelopment}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {row.digitalmarketing}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      {row.Microcontroller}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">
+                      <Stack spacing={2} direction="row">
+                        <Button variant="contained">Edit</Button>
+                        <Button variant="contained">Delete</Button>
                       </Stack>
-                    </StyledTableCell> */}
+                    </StyledTableCell>
                   </StyledTableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
+
+          {/* <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={2}>
+              <Grid item xs={4}>
+                <Typography
+                  align="left"
+                  variant="h5"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  total results :
+                </Typography>
+              </Grid>
+              <Grid item xs={4}>
+                <Typography
+                  align="left"
+                  variant="h5"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  average of results :
+                </Typography>
+              </Grid>
+              <Grid item xs={4}>
+                <Typography
+                  align="left"
+                  variant="h5"
+                  sx={{ fontWeight: "bold" }}
+                >
+                  GPA :
+                </Typography>
+              </Grid>
+            </Grid>
+          </Box> */}
         </Box>
+
+        {/* <Box
+          component="main"
+          sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
+        >
+          <Typography align="left" variant="h4" sx={{ fontWeight: "bold" }}>
+            Semister 2
+          </Typography>
+          <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 700 }} aria-label="customized table">
+              <TableHead>
+                <TableRow>
+                  <StyledTableCell>Subjects</StyledTableCell>
+                  <StyledTableCell align="right">Marks</StyledTableCell>
+                  <StyledTableCell align="right">Grade</StyledTableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows.map((row) => (
+                  <StyledTableRow key={row.name}>
+                    <StyledTableCell component="th" scope="row">
+                      {row.Subjects}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{row.Marks}</StyledTableCell>
+                    <StyledTableCell align="right">{row.Grade}</StyledTableCell>
+                  </StyledTableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </Box> */}
       </Box>
     </>
   );

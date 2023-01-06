@@ -1,56 +1,86 @@
 import * as React from "react";
-import { useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import SkipNextIcon from "@mui/icons-material/SkipNext";
-import lockimg2 from "../../../Assests/lockimg2.jpg";
-import CircleIcon from "@mui/icons-material/Circle";
-import log2 from "../../../Assests/log2.JPG";
-import ListItemText from "@mui/material/ListItemText";
+import HandshakeIcon from "@mui/icons-material/Handshake";
+import { IconButton } from "@mui/material";
+import classimg from "../../../Assests/classimg.jpg";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 
-export default function MediaControlCard() {
-  const theme = useTheme();
-
+export default function AboutCard2() {
   return (
-    <Card sx={{ display: "flex" }}>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography component="div" variant="h5" sx={{ fontWeight: "bold" }}>
-            A1
+    <Card sx={{ maxWidth: 1500 }}>
+      <CardMedia sx={{ height: 240 }} image={classimg} />
+      {/* <CardMedia > */}
+      {/* </CardMedia> */}
+      <CardContent>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="div"
+          sx={{ fontWeight: "bold" }}
+        >
+          Introduction course
+        </Typography>
+        <Typography variant="h6" color="black">
+          The primary aim of the National Diploma in Technology (NDT) course is
+          to produce mid-level professionals required by the industry of our
+          country in various engineering technology disciplines. We conduct the
+          NDT programme inEnglish medium in ten disciplines with a total intake
+          of 800. The breakdown is as follows:
+        </Typography>
+        <List component="nav" aria-label="mailbox folders">
+          
+          <Typography variant="h6" color="black">
+            Chemical Engineering Technology 50
           </Typography>
-          <Typography color="black" variant="h4">
-            Ultra Slim 18MM One-Button Automatic Control Smart Door Lock
+          <Typography variant="h6" color="black">
+            Civil Engineering Technology 200
           </Typography>
-          <Box>
-            <ListItemText>
-              <Typography variant="h5" gutterBottom>
-                1. Slim and simple design with one-touch unlocking
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                2. Ergonomic edges and corners bring a smooth feel
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                3. Metal die-cast model with panels as thin as 18.8m
-              </Typography>
-              <Typography variant="h5" gutterBottom>
-                4. Sensitive and fast fingerprint recognition process
-              </Typography>
-            </ListItemText>
-          </Box>
-        </CardContent>
-      </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 651 }}
-        image={log2}
-        alt="Live from space album cover"
-      />
+          <Typography variant="h6" color="black">
+            Electrical Engineering Technology 100
+          </Typography>{" "}
+          <Typography variant="h6" color="black">
+            Electronic and Telecommunication Engineering Technology 100
+          </Typography>{" "}
+          <Typography variant="h6" color="black">
+            Marine Engineering Technology 20
+          </Typography>{" "}
+          <Typography variant="h6" color="black">
+            Mechanical Engineering Technology 100
+          </Typography>{" "}
+          <Typography variant="h6" color="black">
+            Nautical Studies 20
+          </Typography>{" "}
+          <Typography variant="h6" color="black">
+            Polymer Technology 50
+          </Typography>
+          <Typography variant="h6" color="black">
+            Textile and Clothing Technology 60
+          </Typography>
+          <Typography variant="h6" color="black">
+            Information Technology 100
+          </Typography>
+        </List>
+        <Typography variant="h6" color="black">
+          At the end of the three years of education and training, the
+          successful students are awarded the National Diploma in Technology
+          with an Ordinary, Credit or Distinction pass, as per the performance
+          criteria approved by the University. The latest academic curriculum in
+          operation at the ITUM was introduced in the year 2018 for the first
+          year students and in 2019 for the second year students. This
+          curriculum revision changed the annual academic system of the NDT
+          programme to the semester system.
+        </Typography>
+      </CardContent>
+      {/* <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions> */}
     </Card>
   );
 }

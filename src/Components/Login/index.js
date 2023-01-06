@@ -16,7 +16,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import axios from "axios";
 import PropTypes from "prop-types";
-import loginback from "../../Assests/loginback.jpg";
+import ITUM from "../../Assests/ITUM.jpg";
 import Swal from 'sweetalert2'
 
 function Copyright(props) {
@@ -48,6 +48,7 @@ export default function Login() {
   // React States
   const [usernameReg, setUsernameReg] = useState("");
   const [passwordReg, setPasswordReg] = useState("");
+  const [roleReg, setRoleReg] = useState("");
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedAdmin, setSubmittedAdmin] = useState(false);
@@ -63,13 +64,14 @@ export default function Login() {
 
     event.preventDefault();
     const username = document.getElementById("username").value;
-    console.log("uname", username);
     const password = document.getElementById("password").value;
-    if (username === "admin" && password === "admin") {
+    const jobrole = document.getElementById("Job Role").value;
+
+    if (username === "teacher" && password === "teacher") {
       window.location.href = "/blog";
       //create a session
       sessionStorage.setItem("username", username);
-    } else if (username === "user" && password === "user") {
+    } else if (username === "student" && password === "student") {
       window.location.href = "/UserBlog";
       sessionStorage.setItem("username", username);
     } else {
@@ -83,12 +85,6 @@ export default function Login() {
     }
   };
 
-  // Generate JSX code for error message
-  // const renderErrorMessage = (name) =>
-  //   name === errorMessages.name && (
-  //     <div className="error">{errorMessages.message}</div>
-  //   );
-
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -100,7 +96,7 @@ export default function Login() {
             sm={4}
             md={7}
             sx={{
-              backgroundImage: `url(${loginback})`,
+              backgroundImage: `url(${ITUM})`,
               backgroundRepeat: "no-repeat",
               backgroundColor: (t) =>
                 t.palette.mode === "light"
@@ -132,7 +128,7 @@ export default function Login() {
                 <LockOutlinedIcon />
               </Avatar>
               <Typography component="h1" variant="h5">
-                Sign in
+                Log in
               </Typography>
               <Box
                 component="form"
@@ -145,12 +141,25 @@ export default function Login() {
                   required
                   fullWidth
                   id="username"
-                  label="username"
+                  label="NIC"
                   name="username"
                   autoComplete="username"
                   autoFocus
                   onChange={(e) => {
                     setUsernameReg(e.target.value);
+                  }}
+                />
+                 <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="Job Role"
+                  label="Job Role"
+                  name="Job Role"
+                  autoComplete="username"
+                  autoFocus
+                  onChange={(e) => {
+                    setRoleReg(e.target.value);
                   }}
                 />
                 <TextField
@@ -186,7 +195,7 @@ export default function Login() {
                   </Grid>
                   <Grid item>
                     <Link href="/SignUp" variant="body2">
-                      {"Don't have an account? Sign Up"}
+                      {"Don't have an account? Register"}
                     </Link>
                   </Grid>
                 </Grid>

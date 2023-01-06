@@ -4,10 +4,10 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        Lock hood
+       ITUM
       </Link>
       <ul>
-        <CustomLink to="/Products">Products</CustomLink>
+        <CustomLink to="/Products">Overview</CustomLink>
         <CustomLink to="/about">About</CustomLink>
         <CustomLink to="/login">Login</CustomLink>
       </ul>

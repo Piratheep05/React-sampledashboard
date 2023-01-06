@@ -28,19 +28,21 @@ import Card2 from "../UserBLog/Card2";
 import Card3 from "../UserBLog/Card3";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Link from "@mui/material/Link";
 
 const drawerWidth = 240;
 
 export default function PermanentDrawerLeft() {
   const listItemData = [
-    { label: "UserBlog", link: "/UserBlog", icon: <InboxIcon /> },
+    { label: "Student Blog", link: "/UserBlog", icon: <InboxIcon /> },
     {
-      label: "UserManagement",
+      label: "Semister modules",
       link: "/UserManagement",
       icon: <AssessmentIcon />,
     },
     {
-      label: "UserNotifications",
+      label: "Notifications",
       link: "/UserNotifications",
       icon: <NotificationsIcon />,
     },
@@ -54,9 +56,18 @@ export default function PermanentDrawerLeft() {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            User blog panel dashboard
-          </Typography>
+          <Box sx={{ display:"flex",width:1200 ,justifyContent:"space-between"}}>
+            <Typography variant="h6" noWrap component="div">
+            Student blog panel dashboard
+            </Typography>
+            <Typography  variant="h6" sx={{ fontWeight: "bold" ,display:"flex-end"}}>
+              <Link href="/login">
+                <IconButton>
+                  <LogoutIcon />
+                </IconButton>
+              </Link>
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer

@@ -77,7 +77,25 @@ export default function SignUp() {
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  autoComplete="family-name"
+                  autoComplete="given-name"
+                />
+              </Grid><Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="StudentId"
+                  label="StudentId"
+                  name="StudentId"
+                  autoComplete="given-name"
+                />
+              </Grid><Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="NIC"
+                  label="NIC"
+                  name="NIC"
+                  autoComplete="given-name"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -88,6 +106,16 @@ export default function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  fullWidth
+                  id="TelephoneNumber"
+                  label="TelephoneNumber"
+                  name="TelephoneNumber"
+                  autoComplete="given-name"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -118,7 +146,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/login" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>

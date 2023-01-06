@@ -6,7 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 // import log1 from "../../Assests/log1.Jpg";
-import lockimg3 from "../../Assests/lockimg3.jpg";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import { IconButton } from "@mui/material";
 

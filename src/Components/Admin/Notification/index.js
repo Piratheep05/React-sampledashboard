@@ -24,22 +24,33 @@ import Dialog from "@mui/material/Dialog";
 import PersonIcon from "@mui/icons-material/Person";
 import AddIcon from "@mui/icons-material/Add";
 import { blue } from "@mui/material/colors";
+import LogoutIcon from "@mui/icons-material/Logout";
+import Link from "@mui/material/Link";
 
 const drawerWidth = 240;
-const emails = ["username@gmail.com", "user02@gmail.com","user03@gmail.com","user04@gmail.com","user05@gmail.com"];
+const emails = [
+  "username@gmail.com",
+  "user02@gmail.com",
+  "user03@gmail.com",
+  "user04@gmail.com",
+  "user05@gmail.com",
+];
 
 export default function PermanentDrawerLeft() {
   const listItemData = [
-    { label: "blog", link: "/blog", icon: <InboxIcon /> },
-    { label: "ReportAdmin", link: "/ReportAdmin", icon: <AssessmentIcon /> },
+    { label: "Dashboard", link: "/blog", icon: <InboxIcon /> },
+    { label: "Calender", link: "/ReportAdmin", icon: <AssessmentIcon /> },
     {
-      label: "notification",
+      label: "Academic Notices",
       link: "/notification",
       icon: <NotificationsIcon />,
     },
-    { label: "UserManage", link: "/UserManage", icon: <NotificationsIcon /> },
+    {
+      label: "Semester module",
+      link: "/UserManage",
+      icon: <NotificationsIcon />,
+    },
   ];
-
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -48,9 +59,27 @@ export default function PermanentDrawerLeft() {
         sx={{ width: `calc(100% - ${drawerWidth}px)`, ml: `${drawerWidth}px` }}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            Notification panel dashboard
-          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              width: 1200,
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography variant="h6" noWrap component="div">
+              Notification panel dashboard
+            </Typography>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: "bold", display: "flex-end" }}
+            >
+              <Link href="/login">
+                <IconButton>
+                  <LogoutIcon />
+                </IconButton>
+              </Link>
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer
